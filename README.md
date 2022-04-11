@@ -1,7 +1,7 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
+- Crhistian Felipe da Silva
 - Pessoa 2
 - Pessoa 3
 
