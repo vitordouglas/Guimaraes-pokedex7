@@ -3,6 +3,8 @@ import { StylePokedex } from './style'
 
 export const Pokedex = () => {
   return (
-    <StylePokedex>Pokedex</StylePokedex>
+    <StylePokedex>
+      <h1> Página de Pokedex</h1> 
+      </StylePokedex>
   )
 }
