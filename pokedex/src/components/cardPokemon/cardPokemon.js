@@ -2,7 +2,9 @@ import React from "react";
 import './style.css'
 
 export const CardPokemon = () => {
+
   return (
+    
     <div class="card" >
       <img src="..." class="card-img-top" alt="..." />
       <div class="card-body">
@@ -19,10 +21,10 @@ export const CardPokemon = () => {
       </ul>
       <div class="card-body">
         <a href="#" class="card-link">
-          Card link
+          Adicionar a Pokedex
         </a>
         <a href="#" class="card-link">
-          Another link
+           Detalhes
         </a>
       </div>
     </div>

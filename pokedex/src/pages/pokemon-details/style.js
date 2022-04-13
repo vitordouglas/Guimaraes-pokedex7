@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import fundoPokedexDetails from "../../assets/img/pokemon5.jpeg"
+import fundoPokedexDetails from "../../assets/img/pokemon2.jpg"
 
 
 export const StylePokemonDetails = styled.div`
