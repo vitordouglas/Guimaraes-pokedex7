@@ -14,15 +14,14 @@ export const Home = () => {
     const fetch = async () => {
       setLoading(true);
       try {
-        const { data } = await axios.get(BASE_URL);
-        
+        const { data } = await axios.get(`${BASE_URL}?offset=20&limit=30`);
+        const newArrayPokemons = [];
 
         for (let pokemon of data.results) {
           const pokemonDetails = (await axios.get(`${pokemon.url}`)).data;
-                    pokemon = pokemonDetails;
-          /* console.log("Detalhes dos Pokemons", pokemon) */
+          newArrayPokemons.push(pokemonDetails);
         }
-        setPokemonList(data.results);
+        setPokemonList(newArrayPokemons);
       } catch (error) {
         setError(error);
         console.log(error);
@@ -33,20 +32,22 @@ export const Home = () => {
     fetch();
   }, []);
 
-  const cardPokemon = 
-  pokemonList && pokemonList.map((pokemon)=>{
-    return(
-      <CardPokemon/>
-    )
-  })
-  console.log("lista de pokemons", pokemonList);
+  const cardPokemon =
+    pokemonList &&
+    pokemonList.map((pokemon) => {
+      return <CardPokemon key={pokemon.id} pokemonList={pokemon} />;
+    });
+
+  console.log("lista de pokemons", pokemonList) 
 
   return (
     <StyledHome>
-      {loading && <Spinner/>}
+      {loading && <Spinner />}
       {!loading && error && <h1>Houve Um Erro na Requisição</h1>}
       {!loading && pokemonList && pokemonList.length > 0 && cardPokemon}
-      {!loading && pokemonList && pokemonList.length === 0 && <h1> Não Há Pokemons</h1>}
-    </StyledHome> 
+      {!loading && pokemonList && pokemonList.length === 0 && (
+        <h1> Não Há Pokemons</h1>
+      )}
+    </StyledHome>
   );
 };

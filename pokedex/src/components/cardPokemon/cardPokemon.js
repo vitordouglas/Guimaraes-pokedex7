@@ -1,31 +1,27 @@
 import React from "react";
-import './style.css'
+import "./style.css";
+import {useNavigate } from "react-router-dom";
+import { goToPokedex } from "../../routes/Coordinator";
+import { goToPokemonDetails } from "../../routes/Coordinator";
 
-export const CardPokemon = () => {
 
+export const CardPokemon = (props) => {
+
+  const navigate = useNavigate()
+  
   return (
-    
-    <div class="card" >
-      <img src="..." class="card-img-top" alt="..." />
+    <div class="card me-2 mb-2" style={{width: "18rem"}}>
+      <img src={props.pokemonList.sprites.front_default} class="card-img-top" alt="Imagem Pokemon" />
       <div class="card-body">
-        <h5 class="card-title">title</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
+        <h5 class="card-title">{props.pokemonList.name}</h5>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-      </ul>
-      <div class="card-body">
-        <a href="#" class="card-link">
-          Adicionar a Pokedex
-        </a>
-        <a href="#" class="card-link">
-           Detalhes
-        </a>
+            <div class="card-body">
+        <button class="btn btn-primary me-3" onClick={()=> goToPokedex(navigate)}>
+          Ir à  Pokedex
+        </button>
+        <button class="btn btn-primary" onClick={()=> goToPokemonDetails(navigate)}>
+          Ver Detalhes
+        </button>
       </div>
     </div>
   );
