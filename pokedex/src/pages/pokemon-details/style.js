@@ -1,7 +1,8 @@
 import styled from "styled-components"
+import fundoPokedexDetails from "../../assets/img/pokemon5.jpeg"
+
 
 export const StylePokemonDetails = styled.div`
-height: 100vh;
-background-image: linear-gradient(0deg, rgb(249, 66, 6),rgb(250, 134, 22),rgb(251, 202, 37));
+height: 88vh;
+background-image: url(${fundoPokedexDetails})
 `
-
